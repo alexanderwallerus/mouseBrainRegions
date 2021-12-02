@@ -9,9 +9,9 @@ Entire brain, select brain regions, and created mesh
 
 ## Setup
 
-* You need to downlaoad the allen Region data. Download **annotation (P56_Mouse_annotation.zip)** from [Allen Mouse Brain Atlas API](http://help.brain-map.org/display/mousebrain/API) and put the annotation.raw inside into the allenData folder.
+* You need to downlaoad the allen Region data. Download **"annotation" (P56_Mouse_annotation.zip)** from [Allen Mouse Brain Atlas API](http://help.brain-map.org/display/mousebrain/API) and put the annotation.raw inside into the allenData folder.
 
-* [On the same site](http://help.brain-map.org/display/mousebrain/API) you can find a .xml file to look up the region ID numbers under **Download structure expression values for the sagittal Pdyn SectionDataSet**.
+* [On the same site](http://help.brain-map.org/display/mousebrain/API) you can find a .xml file to look up the region ID numbers under **"Download structure expression values for the sagittal Pdyn SectionDataSet"**.
 
 ## Configuration
 
