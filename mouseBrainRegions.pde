@@ -172,11 +172,14 @@ void draw(){
       shape(l);
     }
   } else if (mesh != null){
+    //without depth sorting later rendered background parts can appear in the
+    //foreground. However, sorting many 100 000s of faces every frame causes a
+    //significant slowdown and for now this is just a preview
     pushMatrix();
-      ambientLight(48,48,48);
-      lightSpecular(230,230,230);
-      directionalLight(255,255,255,0,-0.5,1);
-      specular(255,255,255);
+      ambientLight(48, 48, 48);
+      lightSpecular(230, 230, 230);
+      directionalLight(200, 200, 200, 0, -0.5, 1);
+      specular(255, 255, 255);
       shininess(16.0);
       noStroke();
       fill(255);
