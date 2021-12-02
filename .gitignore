@@ -1,0 +1,10 @@
+#exclude everything in these folders/exclude these files
+notes/*
+allenData/*
+myRegions/*
+exports/*
+
+#keep the empty folder
+!allenData/.gitkeep
+!myRegions/.gitkeep
+!exports/.gitkeep
