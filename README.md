@@ -15,7 +15,7 @@ Entire brain, select brain regions, and created mesh
 
 ## Configuration
 
-* Create a file regions.txt within the myRegions folder and fill it with arbitrary names for- and the specific ID numbers of your regions of interest. A regions.txt for showing regions A, B and C with their looked up IDs of 1001, 1002, and 1003 might look like this:
+* Create a .txt file (i.e. named "regions.txt") within the myRegions folder and fill it with arbitrary names for- and the specific ID numbers of your regions of interest. A regions.txt for showing regions A, B and C with their looked up IDs of 1001, 1002, and 1003 might look like this:
 
 ```
 regionA, 1001

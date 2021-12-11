@@ -45,7 +45,22 @@ void setup(){
   
   //load the IDs of the regions to be visualized
   myRegions = new IntList();
-  String[] lines = loadStrings("myRegions/regions.txt");
+  String[] files = listFileNames(sketchPath() + "\\myRegions");
+  String filePath = "";
+  for(String f : files){
+    String[] nameType = split(f, '.');
+    if(nameType[1].equals("txt")){
+      filePath = sketchPath() + "\\myRegions\\" + f;
+      println("opening " + filePath);
+      break;
+    }
+  }
+  if(filePath.equals("")){
+    println("Could not find a .txt file within the myRegions folder\n" +
+            "Please create and add a .txt file with your regions of interest.");
+  }
+
+  String[] lines = loadStrings(filePath);
   for(String l : lines){
     myRegions.append(int(trim( split(l, ',')[1] )));
   }
@@ -160,6 +175,7 @@ void setup(){
   }
 
   println("created point cloud");
+  println("create and export mesh with \"e\"");
   
   gfx = new ToxiclibsSupport(this);
 }
@@ -348,4 +364,47 @@ void drawAxis(PVector pos){
     textAlign(LEFT);
     //text("This Text is in the top left", 10, 10);  
   cam.endHUD();
+}
+
+
+//Functions for parsing folders:
+String[] listFileNames(String dir){  //return all files in a directory as Str Array
+  File file = new File(dir);
+  if (file.isDirectory()) {
+    String names[] = file.list();
+    return names;
+  } else {
+    return null;  //If it's not a directory
+  }
+}
+
+File[] listFiles(String dir){  //return all files in a directory as File object Array
+  File file = new File(dir);   //=> useful for showing more info about the files
+  if (file.isDirectory()) {
+    File[] files = file.listFiles();
+    return files;
+  } else {
+    return null;   //If it's not a directory
+  }
+}
+
+ArrayList<File> listFilesRecursive(String dir){ //=> list of all files in a directory
+  ArrayList<File> fileList = new ArrayList<File>();  //and all subdirecties
+  recurseDir(fileList, dir);
+  return fileList;
+}
+
+void recurseDir(ArrayList<File> a, String dir){  //Recursive function to traverse
+  File file = new File(dir);                     //subdirectories
+  if (file.isDirectory()) {
+    //If you want to include directories in the list
+    a.add(file);
+    File[] subfiles = file.listFiles();
+    for (int i = 0; i < subfiles.length; i++) {
+      //Call this function on all files in this directory
+      recurseDir(a, subfiles[i].getAbsolutePath());
+    }
+  } else {
+    a.add(file);
+  }
 }
